@@ -122,7 +122,7 @@ const shop = new Shop();
 const user = new User("Francine Smith", 40);
 
 const itemA = new Item("Item A", 10, "Description for Item A");
-const itemB = new Item("Item A", 20, "Description for Item B");
+const itemB = new Item("Item B", 20, "Description for Item B");
 const itemC = new Item("Item C", 30, "Description for Item C");
 
 
