@@ -97,10 +97,6 @@ class User {
             console.log(`-${item.name} - $${item.price}`);
         });
     }
-
-    emptyCart(): void {
-        this._cart = [];
-    }
 }
 
 class Shop {
@@ -122,16 +118,30 @@ class Shop {
     }
 }
 
+const shop = new Shop();
+const user = new User("Francine Smith", 40);
+
 const itemA = new Item("Item A", 10, "Description for Item A");
 const itemB = new Item("Item A", 20, "Description for Item B");
+const itemC = new Item("Item C", 30, "Description for Item C");
 
-const user = new User("Francine Smith", 40);
+
 user.addToCart(itemA);
 user.addToCart(itemB);
+user.addToCart(itemC);
 
-const shop = new Shop();
-shop.addItem(itemA);
-shop.addItem(itemB);
+// Print the user's cart
+user.printCart();
 
-console.log(user.cart);
-console.log(shop.items);
+// Remove instances of a single item from the cart
+user.removeFromCart(itemB);
+
+// Remove a specific quantity from one of the Item list from the cart
+user.removeQuantityFromCart(itemA, 1);
+
+// Print the updated cart
+user.printCart();
+
+// Calculate the total price of the items in the cart
+const cartTotal = user.cartTotal();
+console.log('Cart Total:', cartTotal);
